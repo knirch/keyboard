@@ -59,3 +59,13 @@ fight muscle memory.
 
 [sharpkeys]: https://github.com/randyrants/sharpkeys
 [registry]: https://renenyffenegger.ch/notes/Windows/registry/tree/HKEY_LOCAL_MACHINE/System/CurrentControlSet/Control/Keyboard-Layout/index
+
+### Dual function Esc/Control
+
+- `DualCTRL-Esc.ahk`
+
+AHK1.3 script to make left control send Escape when tapped and control when held.
+
+Lifted from http://www.autohotkey.com/board/topic/103174-dual-function-control-key/
+
+Other variants can be found at https://vim.fandom.com/wiki/Map_caps_lock_to_escape_in_Windows
