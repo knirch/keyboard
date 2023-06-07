@@ -1,0 +1,16 @@
+#!/bin/bash
+
+docker build . -t knirch-qmk
+
+shopt -s globstar
+for keymap in keyboards/**/knirch*; do
+	extra_mount+=(--volume "$PWD/$keymap:/qmk_firmware/$keymap")
+done
+
+docker run -it --rm \
+	--privileged --volume /dev/bus/usb:/dev/bus/usb \
+	--volume "$HOME/qmk_firmware:/qmk_firmware" \
+	--volume "$HOME/.config/qmk:/home/user/.config/qmk" \
+	--volume "$HOME/.cache/ccache:/home/user/.cache/ccache" \
+	"${extra_mount[@]}" \
+	knirch-qmk
