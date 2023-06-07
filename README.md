@@ -44,3 +44,18 @@ Open the directory created, install the layout via `setup`.
 ## Using
 
 The keymaps are installed extra keyboard layouts on English (United States).
+
+## Caps-Lock as Control
+
+Bind CapsLock to LControl in the [registry][registry]. `CapsLock-to-LeftCtrl.skl` can be
+used with [sharpkeys][sharpkeys].
+
+```powershell
+    winget install -e RandyRants.SharpKeys
+```
+
+I normally move the key in QMK, but on laptops this is useful to not having to
+fight muscle memory.
+
+[sharpkeys]: https://github.com/randyrants/sharpkeys
+[registry]: https://renenyffenegger.ch/notes/Windows/registry/tree/HKEY_LOCAL_MACHINE/System/CurrentControlSet/Control/Keyboard-Layout/index
