@@ -32,6 +32,7 @@ enum layers{
  * Track the dipswitch postion via MAC_MODE = true/false.
  */
 static bool MAC_MODE = false;
+static uint8_t LAYER;
 
 void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
@@ -119,40 +120,35 @@ const key_override_t **key_overrides = (const key_override_t *[]) {
 };
 
 void kch_update_rgb(void) {
+    if (LAYER == BASE) {
         if (MAC_MODE) // Normal
             rgb_matrix_reload_from_eeprom();
         else { // Gaming
             rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_PINWHEEL_VAL);
             rgb_matrix_sethsv_noeeprom(0, 255, 200);
         }
+    } else if (LAYER == _FN1) {
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_PINWHEEL_VAL);
+            rgb_matrix_sethsv_noeeprom(20, 255, 200);
+    } else if (LAYER == _FN2) {
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_PINWHEEL_VAL);
+            rgb_matrix_sethsv_noeeprom(80, 255, 200);
+    }
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     dprintf("layer: %d\n", get_highest_layer(state));
-
-    switch (get_highest_layer(state)) {
-        case BASE:
-            kch_update_rgb();
-            break;
-        case _FN1:
-            break;
-        case _FN2:
-            break;
-        default:
-            break;
-        }
+    LAYER = get_highest_layer(state);
+    kch_update_rgb();
     return state;
 }
 
 
 bool dip_switch_update_user(uint8_t index, bool active) {
     dprintf("dip switch: index: %d, active: %d\n", index, active);
-
-    if (index == 0) { // MAC_MODE switch
+    if (index == 0)
         MAC_MODE = !active;
-        kch_update_rgb();
-    }
-
+    kch_update_rgb();
     return true;
 
 }
