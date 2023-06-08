@@ -95,6 +95,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 // GUI + esc = ~
+//
+// Rejected ideas; WIN + 1.. = F1; conflicts with linux window manager
+
+/*
 const key_override_t f1  = ko_make_basic(MOD_MASK_GUI, KC_1   , KC_F1 );
 const key_override_t f2  = ko_make_basic(MOD_MASK_GUI, KC_2   , KC_F2 );
 const key_override_t f3  = ko_make_basic(MOD_MASK_GUI, KC_3   , KC_F3 );
@@ -107,6 +111,10 @@ const key_override_t f9  = ko_make_basic(MOD_MASK_GUI, KC_9   , KC_F9 );
 const key_override_t f10 = ko_make_basic(MOD_MASK_GUI, KC_0   , KC_F10);
 const key_override_t f11 = ko_make_basic(MOD_MASK_GUI, KC_MINS, KC_F11);
 const key_override_t f12 = ko_make_basic(MOD_MASK_GUI, KC_EQL , KC_F12);
+const key_override_t **key_overrides = (const key_override_t *[]) {
+    &f1, &f2, &f3, &f4, &f5, &f6, &f7, &f8, &f9, &f9, &f10, &f11, &f12, NULL
+};
+*/
 
 /*
 const key_override_t win_h = ko_make_with_layers_and_negmods(MOD_MASK_GUI, KC_H, KC_LEFT, BASE, MOD_MASK_SHIFT);
@@ -115,9 +123,6 @@ const key_override_t win_k = ko_make_with_layers_and_negmods(MOD_MASK_GUI, KC_K,
 const key_override_t win_l = ko_make_with_layers_and_negmods(MOD_MASK_GUI, KC_L, KC_RGHT, BASE, MOD_MASK_SHIFT);
 */
 
-const key_override_t **key_overrides = (const key_override_t *[]) {
-    &f1, &f2, &f3, &f4, &f5, &f6, &f7, &f8, &f9, &f9, &f10, &f11, &f12, NULL
-};
 
 void kch_update_rgb(void) {
     if (LAYER == BASE) {
