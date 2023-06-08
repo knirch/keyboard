@@ -18,6 +18,13 @@ when validating, but is perfectly usable.
     WARNING: ' (U+0027) is already defined more than once on the keyboard (on VK_OEM_7, ShiftState 'Ctl+Alt' and VK_OEM_7, ShiftState 'Base').
     WARNING: " (U+0022) is already defined more than once on the keyboard (on VK_OEM_7, ShiftState 'Shift+Ctl+Alt' and VK_OEM_7, ShiftState 'Shift').
 
+### United States - Swedish
+
+- US-KCH-SWE.klc
+
+Standard US ANSI layout with Swedish umlauts on AltGr(+Shift) a, e and o.
+
+
 ## Building
 
 To compile and install, use [Microsoft Keyboard Layout Creator][msklc]. Not available through winget.
