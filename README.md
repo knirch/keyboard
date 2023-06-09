@@ -41,9 +41,28 @@ Open the directory created, install the layout via `setup`.
 
 [msklc]: https://www.microsoft.com/en-us/download/details.aspx?id=102134
 
+
+### Fix the git repository
+
+The .KLC files should be Unicode text, UTF-16, little-endian text, with CRLF
+line terminators. If they are not, set the repository to these settings and do
+a rebase.
+
+```sh
+$ git config core.eol crlf
+$ git config core.safecrlf warn
+$ git config core.autocrlf false
+$ git rebase --root
+```
+
+This should make the .klc files into CRLF UTF-16LE-BOM files and all other
+files use LF line endings.
+
+
 ## Using
 
 The keymaps are installed extra keyboard layouts on English (United States).
+
 
 ## Caps-Lock as Control
 
@@ -59,6 +78,7 @@ fight muscle memory.
 
 [sharpkeys]: https://github.com/randyrants/sharpkeys
 [registry]: https://renenyffenegger.ch/notes/Windows/registry/tree/HKEY_LOCAL_MACHINE/System/CurrentControlSet/Control/Keyboard-Layout/index
+
 
 ### Dual function Esc/Control
 
